@@ -1,4 +1,4 @@
-header {
+body header.profile {
   height: 400px;
   width: 100%;
   position: absolute;
@@ -10,11 +10,11 @@ header {
   align-items: center;
 }
 
-header div img {
+body header div img {
   align-items: flex-start;
 }
 
-header div h2 {
+body header div h2 {
   position: relative;
   align-items: flex-start;
   margin: 0;

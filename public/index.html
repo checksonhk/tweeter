@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css"/>
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -31,7 +32,7 @@
       <span>TWEETER</span>
       <span>Write a new tweet</span>
     </nav>
-    <header>
+    <header class='profile'>
       <div>
         <img src="/images/profile-hex.png"> 
       </div>
@@ -40,23 +41,35 @@
         <h2>Your Name</h2>
       </div>
     </header> 
-
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-          <h2>Compose Tweet</h2>
-          <form method="POST" action="/tweets">
-            <textarea id="message" name="text" placeholder="What are you humming about?"></textarea>
-            <input type="submit" value="Tweet">
-            <span class="counter">140</span>
-          </form>
-        </section>
-        <div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet porttitor metus. Integer porta metus id magna rutrum rutrum. Aliquam et iaculis orci. Donec sagittis, libero at mollis cursus, purus dui mattis ipsum, tristique rutrum urna nisl id quam. Fusce vitae odio a risus mollis pellentesque. Maecenas imperdiet ipsum tincidunt nisi dictum semper. Nulla ut diam massa. Sed feugiat ornare magna, id lobortis diam venenatis id. Praesent sapien tortor, pulvinar vel nisi nec, rhoncus tincidunt lectus. Nunc ac tortor ac felis rutrum posuere. Donec iaculis vehicula scelerisque. In sit amet arcu in dui malesuada gravida vel finibus dolor. Ut pharetra eget velit pretium lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut ex id velit eleifend tempus.</p>
-        </div>
-        <div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet porttitor metus. Integer porta metus id magna rutrum rutrum. Aliquam et iaculis orci. Donec sagittis, libero at mollis cursus, purus dui mattis ipsum, tristique rutrum urna nisl id quam. Fusce vitae odio a risus mollis pellentesque. Maecenas imperdiet ipsum tincidunt nisi dictum semper. Nulla ut diam massa. Sed feugiat ornare magna, id lobortis diam venenatis id. Praesent sapien tortor, pulvinar vel nisi nec, rhoncus tincidunt lectus. Nunc ac tortor ac felis rutrum posuere. Donec iaculis vehicula scelerisque. In sit amet arcu in dui malesuada gravida vel finibus dolor. Ut pharetra eget velit pretium lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut ex id velit eleifend tempus.</p>
-        </div>
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets">
+          <textarea id="message" name="text" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </form>
+      </section>
+      <br>
+      <section id="tweets" class="tweet-container">
+        <article class="tweet">
+          <header>
+            <span>name</span>
+            <span>@i hate css</span>
+          </header>
+          <p>This app is terrific!</p>
+          <footer>
+            <span>10 days ago</span> 
+            <ul>
+              <li><i class="fas fa-flag"></i></li>
+              <li>2</li>
+              <li>3</li>
+            </ul>
+          </footer>
+        </article>
+      </section>
+        
     </main>
   </body>
 </html>

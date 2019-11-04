@@ -7,6 +7,7 @@ form {
 }
 
 
+
 form textarea {
   border: none;
   outline: none;
@@ -28,5 +29,9 @@ form input {
   font-family: 'Bungee', cursive;
   color: white;
   background-color: #4056A1;
+  
+}
 
+.warning {
+  color: red;
 }

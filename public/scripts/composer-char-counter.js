@@ -1,13 +1,10 @@
 $(document).ready(function() {
-  console.log('working...');
   let count = $('.counter').html();
   $('#message').on('keyup', function() {
-    $('.counter').html(count - $('#message').val().length);
-    if ($('.counter').html() < 0) {
-      $('.counter').css('color','red');
-    } else if ($('.counter').html() > 0) {
-      $('.counter').css('color','black');
-    })
+    let counter = $(this).siblings('.counter')
+    counter.html(count - $(this).val().length);
+
+    counter.html() < 0 ? $('.counter').addClass("warning") : $('.counter').removeClass("warning");
   });
 });
 
