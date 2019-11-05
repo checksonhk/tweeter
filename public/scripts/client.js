@@ -7,7 +7,7 @@
 const convertToDaysAgo = function (date) {
   console.log(new Date(Date.now()));
   console.log(new Date(date));
-  return Math.floor((Date.now() - date) / (8.64 * (10**7))) + " days ago";
+  return Math.floor((Date.now() - date) / (8.64 * (10 ** 7))) + " days ago";
 };
 
 const tweetData = [{
