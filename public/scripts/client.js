@@ -5,7 +5,8 @@
  */
 
 const convertToDaysAgo = function (date) {
-  return Math.floor((Date.now() - date) / (8.64 * (10 ** 7))) + " days ago";
+  const daysAgo = Math.floor((Date.now() - date) / (8.64 * (10 ** 7)))
+  return (daysAgo) ? daysAgo + " days ago" : "Today";
 };
 
 const createTweetElement = function(tweet) {
@@ -30,7 +31,7 @@ const createTweetElement = function(tweet) {
 
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
-    $('#tweets-container').append(createTweetElement(tweet));
+    $('#tweets-container').prepend(createTweetElement(tweet));
   }
 };
 
@@ -44,20 +45,16 @@ const formValidator = function(tweet) {
   }
 };
 
-const submitTweet = function () {
-  $('form').on('submit', function(e) {
-    e.preventDefault();
-    let data = $(this).serialize();
-    if (formValidator(data)) {
-      $.ajax({
-        url: '/tweets',
-        method: 'POST',
-        "data": data,
-        success: function(result) {
-          console.log(result);
-        }});
-    }
-  });
+const submitTweet = function(input, cb) {
+  if (formValidator(input)) {
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      "data": input,
+      success: function() {
+        cb();
+      }});
+  }
 };
 
 const loadTweets = function() {
@@ -68,7 +65,18 @@ const loadTweets = function() {
 
 
 $(document).on('ready', function() {
-  submitTweet();
+  
+
+  // Load Tweets for the first time
   loadTweets().then(renderTweets);
+
+  // On submit, if successful reload tweets and render it
+  $('form').on('submit', function(e) {
+    e.preventDefault();
+    let data = $(this).serialize();
+    submitTweet(data,function() {
+      loadTweets().then(tweet => renderTweets(tweet.splice(-1)));
+    });
+  });
 });
 
