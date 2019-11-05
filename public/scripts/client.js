@@ -8,18 +8,6 @@ const convertToDaysAgo = function (date) {
   return Math.floor((Date.now() - date) / (8.64 * (10 ** 7))) + " days ago";
 };
 
-const tweetData = [{
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
-}];
-
 const createTweetElement = function(tweet) {
   return $(
     `<article class='tweet'>
@@ -50,20 +38,32 @@ const submitTweet = function () {
   $('form').on('submit', function(e) {
     e.preventDefault();
     let data = $(this).serialize();
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      "data": data,
-      success: function(result) {
-        console.log(result);
-      }});
+    console.log(data);
+    if (data.length > 146) {
+      console.log("Tweet Too Long!");
+    } else if (data.length < 6) {
+      alert("Tweet cannot be empty!");
+    } else {
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        "data": data,
+        success: function(result) {
+          console.log(result);
+        }});
+    }
   });
+};
+
+const loadTweets = function() {
+  return $.ajax({
+    url: '/tweets',
+    method: 'GET'});
 };
 
 
 $(document).on('ready', function() {
-  renderTweets(tweetData);
-
   submitTweet();
+  loadTweets().then(renderTweets);
 });
 
