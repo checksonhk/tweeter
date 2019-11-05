@@ -1,13 +1,29 @@
 section.tweet-container {
   display: flex; 
   flex-direction: column;
+  margin: 2.5% 0 ;
 }
-
 
 section article {
   border: 3px solid #545149;
   background: transparent;
   padding: 0.5em;
+}
+
+section article:hover {
+  -moz-box-shadow:    3px 3px 5px 6px rgba(64, 87, 161, 0.25);
+  -webkit-box-shadow: 3px 3px 5px 6px rgba(64, 87, 161, 0.25);
+  box-shadow:         3px 3px 5px 6px rgba(64, 87, 161, 0.25);
+}
+
+section article:hover .handle {
+  opacity: 1;
+}
+
+article header .handle {
+  opacity: 0;
+  font-size: x-large;
+  color: rgba(64, 87, 161, 0.25);
 }
 
 article.tweet header {
@@ -19,8 +35,12 @@ article.tweet header {
 
 article p {
   padding: 1em 0.5em 1em 0.5em;
-  border-bottom: 3px solid #545149;
   margin: 0 0 0 0;
+  opacity: 0.5;
+}
+
+article p:hover {
+  opacity: 1;
 }
 
 article.tweet footer {
@@ -29,6 +49,7 @@ article.tweet footer {
   width: 100%;
   padding: .5em;
   font-size: medium;
+  border-top: 3px solid #545149;
 }
 
 article.tweet footer ul {
@@ -38,3 +59,15 @@ article.tweet footer ul {
   margin: 0 0 0 0;
 }
 
+.fas {
+  color: rgba(64, 87, 161);
+}
+
+.avatar {
+  max-width: 50px;
+  margin-right: 0.5em;
+}
+
+.username {
+  margin: auto auto auto 0;
+}
