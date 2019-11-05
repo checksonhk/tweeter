@@ -9,6 +9,7 @@ const convertToDaysAgo = function (date) {
   return (daysAgo) ? daysAgo + " days ago" : "Today";
 };
 
+// TODO: add escape function 
 const createTweetElement = function(tweet) {
   return $(
     `<article class='tweet'>
@@ -51,8 +52,8 @@ const submitTweet = function(input, cb) {
       url: '/tweets',
       method: 'POST',
       "data": input,
-      success: function() {
-        cb();
+      success: function(data) {
+        cb(data);
       }});
   }
 };
@@ -65,8 +66,6 @@ const loadTweets = function() {
 
 
 $(document).on('ready', function() {
-  
-
   // Load Tweets for the first time
   loadTweets().then(renderTweets);
 
@@ -74,8 +73,8 @@ $(document).on('ready', function() {
   $('form').on('submit', function(e) {
     e.preventDefault();
     let data = $(this).serialize();
-    submitTweet(data,function() {
-      loadTweets().then(tweet => renderTweets(tweet.splice(-1)));
+    submitTweet(data,function(tweet) {
+      renderTweets([tweet]);
     });
   });
 });
