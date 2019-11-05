@@ -34,16 +34,21 @@ const renderTweets = function(tweets) {
   }
 };
 
+const formValidator = function(tweet) {
+  if (tweet.length > 146) {
+    alert("Tweet Too Long!");
+  } else if (tweet.length < 6) {
+    alert("Tweet cannot be empty!");
+  } else {
+    return tweet;
+  }
+};
+
 const submitTweet = function () {
   $('form').on('submit', function(e) {
     e.preventDefault();
     let data = $(this).serialize();
-    console.log(data);
-    if (data.length > 146) {
-      console.log("Tweet Too Long!");
-    } else if (data.length < 6) {
-      alert("Tweet cannot be empty!");
-    } else {
+    if (formValidator(data)) {
       $.ajax({
         url: '/tweets',
         method: 'POST',
