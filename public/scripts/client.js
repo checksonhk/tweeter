@@ -5,8 +5,6 @@
  */
 
 const convertToDaysAgo = function (date) {
-  console.log(new Date(Date.now()));
-  console.log(new Date(date));
   return Math.floor((Date.now() - date) / (8.64 * (10 ** 7))) + " days ago";
 };
 
@@ -23,23 +21,23 @@ const tweetData = [{
 }];
 
 const createTweetElement = function(tweet) {
-  const $tweet = $("<article>").addClass('tweet');
-  $(`
-  <header>
-    <img class='avatar' src="${tweet.user.avatars}">
-    <span class='username'>${tweet.user.name}</span>
-    <span class='handle'>${tweet.user.handle}</span>
-  </header>
-  <p>${tweet.content.text}</p>
-  <footer>
-    <span>${convertToDaysAgo(tweet.created_at)}</span> 
-    <ul>
-      <li class="fas fa-flag"></li>
-      <li class="fas fa-retweet"></li>
-      <li class="fas fa-heart"></li>
-    </ul>
-  </footer>`).appendTo($tweet);
-  return $tweet;
+  return $(
+    `<article class='tweet'>
+      <header>
+        <img class='avatar' src="${tweet.user.avatars}">
+        <span class='username'>${tweet.user.name}</span>
+        <span class='handle'>${tweet.user.handle}</span>
+      </header>
+      <p>${tweet.content.text}</p>
+      <footer>
+        <span>${convertToDaysAgo(tweet.created_at)}</span> 
+        <ul>
+          <li class="fas fa-flag"></li>
+          <li class="fas fa-retweet"></li>
+          <li class="fas fa-heart"></li>
+        </ul>
+      </footer>
+    </article>`);
 };
 
 const renderTweets = function(tweets) {
@@ -48,8 +46,24 @@ const renderTweets = function(tweets) {
   }
 };
 
+const submitTweet = function () {
+  $('form').on('submit', function(e) {
+    e.preventDefault();
+    let data = $(this).serialize();
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      "data": data,
+      success: function(result) {
+        console.log(result);
+      }});
+  });
+};
+
 
 $(document).on('ready', function() {
   renderTweets(tweetData);
+
+  submitTweet();
 });
 

@@ -1,9 +1,10 @@
 $(document).ready(function() {
-  let count = $('.counter').html();
+  const charLimit = 140;
+  const $counter = $(".new-tweet .counter");
+
   $('#message').on('keyup', function() {
-    let counter = $(this).siblings('.counter')
-    counter.html(count - $(this).val().length);
-    counter.html() < 0 ? $('.counter').addClass("warning") : $('.counter').removeClass("warning");
+    const charsLeft = charLimit - $(this).val().length;
+    $counter.text(charsLeft);
+    charsLeft < 0 ? $counter.addClass("warning") : $counter.removeClass("warning");
   });
 });
-

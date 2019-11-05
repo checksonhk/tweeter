@@ -3,7 +3,6 @@ form {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  position: relative;
 }
 
 form textarea {
@@ -11,25 +10,22 @@ form textarea {
   outline: none;
   border-bottom: 3px solid #545149;
   background: transparent;
-  height: 2em;
+  height: 3em;
   width: 100%;
-  vertical-align: baseline;
   margin-bottom: .5em;
   resize: none;
 }
 
-form span.counter {
-  justify-self: flex-end;
+form input,
+form .counter {
   font-family: 'Bungee', cursive;
 }
 
 form input {
-  font-family: 'Bungee', cursive;
   color: white;
   background-color: #4056A1;
-  
 }
 
-.warning {
+.counter.warning {
   color: red;
 }

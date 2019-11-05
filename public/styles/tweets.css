@@ -1,73 +1,74 @@
-section.tweet-container {
+.tweet-container {
   display: flex; 
   flex-direction: column;
-  margin: 2.5% 0 ;
+  margin: 2.5% 0;
 }
 
-section article {
+.tweet {
   border: 3px solid #545149;
-  background: transparent;
   padding: 0.5em;
 }
 
-section article:hover {
+.tweet:hover {
   -moz-box-shadow:    3px 3px 5px 6px rgba(64, 87, 161, 0.25);
   -webkit-box-shadow: 3px 3px 5px 6px rgba(64, 87, 161, 0.25);
   box-shadow:         3px 3px 5px 6px rgba(64, 87, 161, 0.25);
 }
 
-section article:hover .handle {
-  opacity: 1;
-}
-
-article header .handle {
-  opacity: 0;
-  font-size: x-large;
-  color: rgba(64, 87, 161, 0.25);
-}
-
-article.tweet header {
+.tweet header {
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: .5em 0.5em 0em 0.5em;
 }
 
-article p {
-  padding: 1em 0.5em 1em 0.5em;
-  margin: 0 0 0 0;
-  opacity: 0.5;
+.tweet header .avatar {
+  max-width: 50px;
+  margin-right: 0.5em;
 }
 
-article p:hover {
+.tweet header .username {
+  flex-grow: 2;
+  align-self: center;
+  /* margin: auto auto auto 0; */
+}
+
+.tweet header .handle {
+  opacity: 0;
+  font-size: x-large;
+  color: rgba(64, 87, 161, 0.25);
+}
+
+.tweet:hover header .handle {
   opacity: 1;
 }
 
-article.tweet footer {
+.tweet p {
+  padding: 1em 0.5em;
+  margin: 0;
+  opacity: 0.5;
+}
+
+.tweet:hover p {
+  opacity: 1;
+}
+
+.tweet footer {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   padding: .5em;
   font-size: medium;
   border-top: 3px solid #545149;
 }
 
-article.tweet footer ul {
-  display: flex;
-  justify-content: space-around;
-  width: 15%;
-  margin: 0 0 0 0;
+.tweet footer ul {
+  margin: 0;
+}
+
+.tweet footer ul li {
+  margin: 0.25em;
 }
 
 .fas {
   color: rgba(64, 87, 161);
-}
-
-.avatar {
-  max-width: 50px;
-  margin-right: 0.5em;
-}
-
-.username {
-  margin: auto auto auto 0;
 }
