@@ -50,7 +50,7 @@ const formValidator = function(tweet) {
     throw Error("Tweet Too Long!");
   } else if (tweet.length < 6) {
     throw Error("Tweet cannot be empty!");
-  } 
+  }
 };
 
 const submitTweet = function(input) {
@@ -74,7 +74,7 @@ const loadTweets = function() {
 
 const clearTweetForm = (e) => {
   $(e).children('#message').val('');
-  $(e).children(".counter").text('140');
+  $(e).children(".counter").text('140').removeClass('warning');
 };
 
 $(document).on('ready', function() {
@@ -91,12 +91,18 @@ $(document).on('ready', function() {
 
     submitTweet(data).then((tweet) => {
       renderTweets([tweet]);
+      // Clears text form
+      clearTweetForm(this);
     }).catch(function(error) {
-      $('.error-message').text(error).hide().slideDown();
-    });
 
-    // Clears text form
-    clearTweetForm(this);
+      const $errorMsg = $("#error-message");
+      $errorMsg.text(error).hide().addClass('error-message').slideDown();
+      setTimeout(() => {
+        $errorMsg.slideUp(400, () => {
+          $errorMsg.text('').removeClass('error-message');
+        });
+      }, 2000);
+    });
   });
   
   // Slide down Tweet poster
