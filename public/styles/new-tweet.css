@@ -35,3 +35,10 @@ form input {
 .counter.warning {
   color: red;
 }
+
+@media only screen and (min-width: 1024px) {
+
+  .tweet-form-container {
+    width: 90%;
+  }
+};

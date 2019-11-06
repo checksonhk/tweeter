@@ -16,3 +16,12 @@ header p {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
 }
+
+
+@media only screen and (min-width: 1024px) {
+  
+  header.profile {
+    margin-top: 120px;
+    width: 40%;
+  }
+ }

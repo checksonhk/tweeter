@@ -79,3 +79,10 @@
 .fa-heart {
   color: rgba(64, 87, 161);
 }
+
+@media only screen and (min-width: 1024px) {
+
+  .tweet-container {
+    width: 90%
+  }
+};
