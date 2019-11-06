@@ -88,6 +88,16 @@ button:hover ~ .fa-angle-double-down {
     text-align: center;
     padding: 0.5rem;
 }
+
 #back2Top:hover {
   transform: scale(1.05);
 }
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056A1;
+  }
+  .error-message {
+    width: 55%;
+  }
+ }
