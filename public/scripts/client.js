@@ -35,7 +35,7 @@ const createTweetElement = function(tweet) {
 };
 
 const hideTweetForm = function() {
-  $('.new-tweet').hide();
+  $('.tweet-form-container').hide();
 };
 
 
@@ -107,7 +107,7 @@ $(document).on('ready', function() {
   
   // Slide down Tweet poster
   $( "button" ).on("click", function() {
-    $(".new-tweet").slideToggle(500);
+    $(".tweet-form-container").slideToggle(500);
   });
 });
 

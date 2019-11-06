@@ -1,7 +1,8 @@
 .tweet-container {
+  width: 90%;
+  margin: auto;
   display: flex; 
   flex-direction: column;
-  margin: 2.5% 0;
 }
 
 .tweet {
@@ -21,6 +22,7 @@
   justify-content: space-between;
   width: 100%;
   padding: .5em 0.5em 0em 0.5em;
+  align-self: baseline;
 }
 
 .tweet header .avatar {
@@ -38,6 +40,7 @@
   opacity: 0;
   font-size: x-large;
   color: rgba(64, 87, 161, 0.25);
+  padding-top: 10px;
 }
 
 .tweet:hover header .handle {
@@ -48,6 +51,7 @@
   padding: 1em 0.5em;
   margin: 0;
   opacity: 0.5;
+  word-break: break-all;
 }
 
 .tweet:hover p {

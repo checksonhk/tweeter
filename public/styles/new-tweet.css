@@ -1,3 +1,8 @@
+.tweet-form-container {
+  width: 90%;
+  margin: auto;
+}
+
 form {
   display: flex;
   flex-wrap: wrap;

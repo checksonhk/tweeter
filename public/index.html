@@ -32,22 +32,22 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span class="nav-header">TWEETER</span>
-      <ul class="nav-icons">
-        <li><button>
-          <span><b>Write</b> a new tweet</button></span>
-          <i class="fas fa-angle-double-down"></i>
-        </li>
-      </ul>
-    </nav>
-    <header class='profile'>
-      <img src="/images/profile-hex.png"> 
-      <p><b>Jackson</b> To</p>
-    </header> 
+    <main class=".container">
+      <nav>
+        <span class="nav-header">TWEETER</span>
+        <ul class="nav-icons">
+          <li><button>
+            <span><b>Write</b> a new tweet</button></span>
+            <i class="fas fa-angle-double-down"></i>
+          </li>
+        </ul>
+      </nav>
+      <header class='profile'>
+        <img src="/images/profile-hex.png"> 
+        <p><b>Jackson</b> To</p>
+      </header> 
     <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
+      <section class="tweet-form-container">
         <h2>Compose Tweet</h2>
         <div id="error-message"></div> 
         <form method="POST" action="/tweets">

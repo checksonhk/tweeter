@@ -9,7 +9,7 @@ $(window).scroll(function() {
 
 $(document).ready(function() {
   const charLimit = 140;
-  const $counter = $(".new-tweet .counter");
+  const $counter = $(".tweet-form-container .counter");
 
   $('#message').on('input', function() {
     const charsLeft = charLimit - $(this).val().length;
@@ -20,7 +20,7 @@ $(document).ready(function() {
   $("#back2Top").click(function(event) {
     event.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, "slow");
-    $(".new-tweet").show();
+    $(".tweet-form-container").show();
   });
   
 });
