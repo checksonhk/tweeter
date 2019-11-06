@@ -3,6 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+const escape = function(str) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const convertToDaysAgo = function (date) {
   const daysAgo = Math.floor((Date.now() - date) / (8.64 * (10 ** 7)))
@@ -15,12 +20,12 @@ const createTweetElement = function(tweet) {
     `<article class='tweet'>
       <header>
         <img class='avatar' src="${tweet.user.avatars}">
-        <span class='username'>${tweet.user.name}</span>
-        <span class='handle'>${tweet.user.handle}</span>
+        <span class='username'>${escape(tweet.user.name)}</span>
+        <span class='handle'>${escape(tweet.user.handle)}</span>
       </header>
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
       <footer>
-        <span>${convertToDaysAgo(tweet.created_at)}</span> 
+        <span>${convertToDaysAgo(escape(tweet.created_at))}</span> 
         <ul>
           <li class="fas fa-flag"></li>
           <li class="fas fa-retweet"></li>
@@ -46,15 +51,13 @@ const formValidator = function(tweet) {
   }
 };
 
-const submitTweet = function(input, cb) {
+const submitTweet = function(input) {
   if (formValidator(input)) {
-    $.ajax({
+    return $.ajax({
       url: '/tweets',
       method: 'POST',
       "data": input,
-      success: function(data) {
-        cb(data);
-      }});
+    });
   }
 };
 
@@ -69,11 +72,12 @@ $(document).on('ready', function() {
   // Load Tweets for the first time
   loadTweets().then(renderTweets);
 
-  // On submit, if successful reload tweets and render it
+  // On submit, if successful renders the tweet
   $('form').on('submit', function(e) {
     e.preventDefault();
     let data = $(this).serialize();
-    submitTweet(data,function(tweet) {
+
+    submitTweet(data).then((tweet) => {
       renderTweets([tweet]);
     });
   });
