@@ -12,9 +12,8 @@ const escape = function(str) {
 const convertToDaysAgo = function (date) {
   const daysAgo = Math.floor((Date.now() - date) / (8.64 * (10 ** 7)))
   return (daysAgo) ? daysAgo + " days ago" : "Today";
-};
+}; 
 
-// TODO: add escape function 
 const createTweetElement = function(tweet) {
   return $(
     `<article class='tweet'>
@@ -34,6 +33,11 @@ const createTweetElement = function(tweet) {
       </footer>
     </article>`);
 };
+
+const hideTweetForm = function() {
+  $('.new-tweet').hide();
+};
+
 
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
@@ -67,9 +71,9 @@ const loadTweets = function() {
     method: 'GET'});
 };
 
-
 $(document).on('ready', function() {
   
+  hideTweetForm();
   // Load Tweets for the first time
   loadTweets().then(renderTweets);
 
@@ -85,8 +89,7 @@ $(document).on('ready', function() {
   
   // Slide down Tweet poster
   $( "button" ).on("click", function() {
-    $( ".new-tweet" ).slideToggle( 400, function() {
-      console.log("clicked..");
+    $( ".new-tweet" ).slideToggle( 500, function() {
     });
   });
 });

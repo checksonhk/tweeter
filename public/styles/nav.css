@@ -25,10 +25,6 @@ ul.nav-icons li {
 }
 
 button {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  flex-grow: 2;
   border-radius: 4px;
   background-color: transparent;
   color: white;
@@ -46,5 +42,24 @@ button span {
 }
 
 button:hover span {
-  padding-bottom: 10px;
+  padding-bottom: 1px;
+}
+
+#back2Top {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    z-index: 999;
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgb(255, 72, 0);
+    color: white;
+    text-align: center;
+    align-items: center;
+}
+#back2Top:hover {
+  transform: scale(1.05);
 }
