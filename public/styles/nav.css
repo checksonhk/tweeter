@@ -22,10 +22,26 @@ ul.nav-icons {
 
 ul.nav-icons li {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
+/* error message */
+.error-message {
+  color: #D8000C;
+  position: absolute;
+  border: red solid 2px;
+  width: 90%;
+  height: 3rem;
+  padding-left: 1rem;
+  background: #f4f1ec;
+}  
+
+/* tweet form toggle */
 button {
-  border-radius: 4px;
+  margin-top: 25px;
   background-color: transparent;
   color: white;
   border: none;
@@ -41,10 +57,19 @@ button span {
   transition: 0.5s;
 }
 
-button:hover span {
-  padding-bottom: 1px;
+
+button:hover ~ .fa-angle-double-down {
+  margin-top: 0.5rem;
+  opacity: 1;
 }
 
+.fa-angle-double-down{
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  color: white;
+}
+
+/* back to top */
 #back2Top {
     border-radius: 50%;
     width: 50px;
@@ -58,7 +83,7 @@ button:hover span {
     background-color: rgb(255, 72, 0);
     color: white;
     text-align: center;
-    align-items: center;
+    padding: 0.5rem;
 }
 #back2Top:hover {
   transform: scale(1.05);

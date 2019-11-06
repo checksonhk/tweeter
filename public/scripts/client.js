@@ -47,21 +47,22 @@ const renderTweets = function(tweets) {
 
 const formValidator = function(tweet) {
   if (tweet.length > 146) {
-    alert("Tweet Too Long!");
+    throw Error("Tweet Too Long!");
   } else if (tweet.length < 6) {
-    alert("Tweet cannot be empty!");
-  } else {
-    return tweet;
-  }
+    throw Error("Tweet cannot be empty!");
+  } 
 };
 
 const submitTweet = function(input) {
-  if (formValidator(input)) {
+  try {
+    formValidator(input);
     return $.ajax({
       url: '/tweets',
       method: 'POST',
       "data": input,
     });
+  } catch (error) {
+    return Promise.reject(error);
   }
 };
 
@@ -69,6 +70,11 @@ const loadTweets = function() {
   return $.ajax({
     url: '/tweets',
     method: 'GET'});
+};
+
+const clearTweetForm = (e) => {
+  $(e).children('#message').val('');
+  $(e).children(".counter").text('140');
 };
 
 $(document).on('ready', function() {
@@ -80,17 +86,22 @@ $(document).on('ready', function() {
   // On submit, if successful renders the tweet
   $('form').on('submit', function(e) {
     e.preventDefault();
+    
     let data = $(this).serialize();
 
     submitTweet(data).then((tweet) => {
       renderTweets([tweet]);
+    }).catch(function(error) {
+      $('.error-message').text(error).hide().slideDown();
     });
+
+    // Clears text form
+    clearTweetForm(this);
   });
   
   // Slide down Tweet poster
   $( "button" ).on("click", function() {
-    $( ".new-tweet" ).slideToggle( 500, function() {
-    });
+    $(".new-tweet").slideToggle(500);
   });
 });
 
