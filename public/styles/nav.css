@@ -9,9 +9,42 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5em;
 }
 
-nav * {
-  padding: 1.5em;
+.nav-header {
   font-family: 'Bungee', cursive;
+}
+
+ul.nav-icons {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+ul.nav-icons li {
+  list-style-type: none;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 2;
+  border-radius: 4px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-bottom: 10px;
 }

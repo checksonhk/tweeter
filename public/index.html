@@ -33,8 +33,12 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>TWEETER</span>
-      <span>Write a new tweet</span>
+      <span class="nav-header">TWEETER</span>
+      <ul class="nav-icons">
+        <li><button>
+          <span><b>Write</b> a new tweet</button></span>
+        </li>
+      </ul>
     </nav>
     <header class='profile'>
       <img src="/images/profile-hex.png"> 
@@ -42,32 +46,16 @@
     </header> 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <!-- <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets">
           <textarea id="message" name="text" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet">
           <span class="counter">140</span>
         </form>
-      </section>
+      </section> -->
       <br>
       <section id="tweets-container" class="tweet-container">
-        <!-- <article class="tweet">
-          <header>
-            <span> <i class="fas fa-user-circle"></i>
-              name</span>
-            <span class='handle'>@i hate css</span>
-          </header>
-          <p>This app is terrific!</p>
-          <footer>
-            <span>10 days ago</span> 
-            <ul>
-              <li class="fas fa-flag"></li>
-              <li class="fas fa-retweet"></li>
-              <li class="fas fa-heart"></li>
-            </ul>
-          </footer>
-        </article> -->
       </section>
     </main>
   </body>

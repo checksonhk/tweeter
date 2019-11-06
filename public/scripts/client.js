@@ -69,6 +69,7 @@ const loadTweets = function() {
 
 
 $(document).on('ready', function() {
+  
   // Load Tweets for the first time
   loadTweets().then(renderTweets);
 
@@ -79,6 +80,13 @@ $(document).on('ready', function() {
 
     submitTweet(data).then((tweet) => {
       renderTweets([tweet]);
+    });
+  });
+  
+  // Slide down Tweet poster
+  $( "button" ).on("click", function() {
+    $( ".new-tweet" ).slideToggle( 400, function() {
+      console.log("clicked..");
     });
   });
 });
