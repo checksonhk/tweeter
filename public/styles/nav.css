@@ -109,6 +109,7 @@ button:hover ~ .fa-angle-double-down {
   }
   .error-message {
     /* ask mentor why this doesnt inherit tweet-container width */
-    width: 90%;
+    max-width: 54%;
+    
   }
  }

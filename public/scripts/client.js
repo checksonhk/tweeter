@@ -98,7 +98,7 @@ $(document).on('ready', function() {
       clearTweetForm(this);
     }).catch(function(error) {
 
-      
+
       const $errorMsg = $("#error-message");
       $errorMsg.text(error).hide().addClass('error-message').slideDown();
 
