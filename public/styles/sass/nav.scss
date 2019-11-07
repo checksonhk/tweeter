@@ -1,0 +1,117 @@
+@use 'layout';
+
+nav {
+  position: fixed;
+  top: 0;
+  height: 120px;
+  width: 100%;
+  color: #ffffff;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em;
+}
+
+.nav-color {
+    background-color: layout.$secondary-color;
+}
+
+.nav-header {
+  font-family: layout.$font-main;
+}
+
+ul.nav-icons {
+  font-family: layout.$font-body;  
+  
+  li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+/* error message */
+.error-message {
+  z-index: 999;
+  color: #D8000C;
+  position: absolute;
+  border: red solid 3px;
+  border-radius: 5px;
+  width: 90%;
+  height: 4rem;
+  padding-left: 1rem;
+  padding-top: .75rem;
+  background: layout.$bg-color;
+}  
+
+/* tweet form toggle */
+button {
+  margin-top: 25px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  
+  span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+}
+
+button:hover ~ .fa-angle-double-down {
+  margin-top: 0.5rem;
+  opacity: 1;
+}
+
+.fa-angle-double-down{
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  color: white;
+  animation: bounce 0.25s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from {transform: translate3d(0,0,0);}
+  to {transform: translate3d(0,5px,0);}
+}
+
+/* back to top */
+#back2Top {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    z-index: 999;
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgb(255, 72, 0);
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+#back2Top:hover {
+  transform: scale(1.05);
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: layout.$secondary-color;
+  }
+  .error-message {
+    /* ask mentor why this doesnt inherit tweet-container width */
+    max-width: 54%;
+    
+  }
+ }

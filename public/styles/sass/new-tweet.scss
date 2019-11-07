@@ -1,0 +1,47 @@
+@use 'layout';
+
+.tweet-form-container {
+  width: 90%;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  
+  textarea {
+    border: none;
+    outline: none;
+    border-bottom: 3px solid #545149;
+    background: transparent;
+    height: 3em;
+    width: 100%;
+    margin-bottom: .5em;
+    resize: none;
+    overflow:hidden;
+  }
+  
+  input, 
+  .counter {
+    font-family: layout.$font-main
+  }
+
+  input {
+    color: white;
+    background-color: layout.$secondary-color;
+  }
+
+}
+
+.counter.warning {
+  color: red;
+}
+
+@media only screen and (min-width: 1024px) {
+
+  .tweet-form-container {
+    width: 90%;
+  }
+};

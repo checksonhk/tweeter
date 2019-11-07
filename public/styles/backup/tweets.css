@@ -1,3 +1,5 @@
+@use 'layout.scss';
+
 .tweet-container {
   width: 90%;
   margin: auto;
@@ -15,6 +17,16 @@
   -moz-box-shadow:    3px 3px 5px 6px rgba(64, 87, 161, 0.25);
   -webkit-box-shadow: 3px 3px 5px 6px rgba(64, 87, 161, 0.25);
   box-shadow:         3px 3px 5px 6px rgba(64, 87, 161, 0.25);
+}
+
+.tweet:hover .fa-flag {
+  opacity: 1;
+}
+.tweet:hover .fa-retweet {
+  opacity: 1;
+}
+.tweet:hover .fa-heart {
+  opacity: 1;
 }
 
 .tweet header {
@@ -78,6 +90,7 @@
 .fa-retweet,
 .fa-heart {
   color: rgba(64, 87, 161);
+  opacity: 0;
 }
 
 @media only screen and (min-width: 1024px) {
