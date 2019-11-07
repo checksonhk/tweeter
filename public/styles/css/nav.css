@@ -56,6 +56,19 @@ nav {
 
 .nav-header {
   font-family: "Bungee", cursive;
+  font-size: 36px;
+}
+
+ .fab.fa-earlybirds:before {
+  display: inline-block;
+  animation: swing 2s infinite ease-in-out;
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-15deg); }
+  20% {transform:scale(.95);}
+  50% { transform: rotate(15deg); }
+  80% {transform:scale(.95);}
 }
 
 ul.nav-icons {

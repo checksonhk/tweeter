@@ -48,13 +48,13 @@ body {
   padding: 0.5em;
   margin-bottom: 1em;
 }
-.tweet .fa-flag {
+.tweet:hover .fa-flag {
   opacity: 1;
 }
-.tweet .fa-retweet {
+.tweet:hover .fa-retweet {
   opacity: 1;
 }
-.tweet .fa-heart {
+.tweet:hover .fa-heart {
   opacity: 1;
 }
 .tweet header {
