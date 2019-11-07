@@ -54,18 +54,21 @@ const formValidator = function(tweet) {
 };
 
 const submitTweet = function(input) {
-  try {
-    formValidator(input);
-    return $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      "data": input,
-    });
-  } catch (error) {
-    return Promise.reject(error);
-  }
+  // Ask mentor about this method
+  return new Promise((resolve, reject) => {
+    try {
+      formValidator(input);
+      resolve($.ajax({
+        url: '/tweets',
+        method: 'POST',
+        "data": input,
+      }));
+    } catch (error) {
+      reject(error);
+    }
+  });
 };
-
+    
 const loadTweets = function() {
   return $.ajax({
     url: '/tweets',
@@ -95,8 +98,10 @@ $(document).on('ready', function() {
       clearTweetForm(this);
     }).catch(function(error) {
 
+      
       const $errorMsg = $("#error-message");
       $errorMsg.text(error).hide().addClass('error-message').slideDown();
+
       setTimeout(() => {
         $errorMsg.slideUp(400, () => {
           $errorMsg.text('').removeClass('error-message');

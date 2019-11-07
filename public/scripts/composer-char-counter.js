@@ -1,9 +1,11 @@
 $(window).scroll(function() {
   let height = $(window).scrollTop();
-  if (height > 200) {
+  if (height > 300) {
     $('#back2Top').fadeIn();
+    $('nav').addClass('nav-color').children('.nav-icons').hide();
   } else {
     $('#back2Top').fadeOut();
+    $('nav').removeClass('nav-color').children('.nav-icons').show();
   }
 });
 
