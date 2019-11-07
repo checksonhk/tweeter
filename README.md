@@ -1,6 +1,7 @@
 # Tweeter Project
 
 ![screenshot of desktop view](https://github.com/checksonhk/tweeter/blob/master/docs/main_page.png)
+\n
 ![screenshot of mobile view](https://github.com/checksonhk/tweeter/blob/master/docs/mobile.png)
 
 Tweeter is a simple, single-page Twitter clone.
