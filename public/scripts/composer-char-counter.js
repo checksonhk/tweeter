@@ -6,6 +6,7 @@ $(window).scroll(function() {
   } else {
     $('#back2Top').fadeOut();
     $('nav').removeClass('nav-color').children('.nav-icons').show();
+
   }
 });
 
